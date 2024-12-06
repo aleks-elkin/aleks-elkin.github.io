@@ -1,15 +1,14 @@
 ---
+import { published } from "@data/post";
+import Blog from "@layouts/blog";
+import Preview from "@components/blog/preview";
+
+const markdownFiles = await Astro.glob("../content/**/*.md");
+const posts = published(markdownFiles);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Blog title="Aleks Elkin Blog">
+    <div class="content container">
+        {posts.map((p) => <Preview post={p} />)}
+    </div>
+</Blog>
