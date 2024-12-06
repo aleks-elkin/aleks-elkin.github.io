@@ -1,14 +1,20 @@
 ---
-import { published } from "@data/post";
-import Blog from "@layouts/blog";
-import Preview from "@components/blog/preview";
-
-const markdownFiles = await Astro.glob("../content/**/*.md");
-const posts = published(markdownFiles);
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Blog title="Aleks Elkin Blog">
-    <div class="content container">
-        {posts.map((p) => <Preview post={p} />)}
-    </div>
-</Blog>
+<Layout
+  title={SITE_TITLE}
+  description={SITE_DESCRIPTION}
+  className="flex h-svh max-w-sm flex-col justify-center"
+>
+  <main class="space-y-4">
+    <p>
+    Hi, I'm Aleks!
+    This is my personal blog about technology, programming, and other interesting topics.
+    I write about my experience as a software engineer, share my knowledge, and discuss the latest trends in the tech industry.
+    I hope you enjoy reading my blog posts and find them helpful. If you have any questions or suggestions, feel free to contact me.
+    I'm always happy to help and learn something new. Thank you for visiting my blog!
+    </p>
+  </main>
+</Layout>
