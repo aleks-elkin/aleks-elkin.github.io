@@ -1,5 +1,6 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
+import Footer from "../../components/Footer.astro";
 import Layout from "../../layouts/Layout.astro";
 import { formatDate } from "../../lib/utils";
 
@@ -32,4 +33,5 @@ const { Content } = await post.render();
       <Content />
     </article>
   </main>
+  <Footer />
 </Layout>
